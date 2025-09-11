@@ -1,20 +1,5 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
-
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
-
-import PrimeVue from 'primevue/config'
-import Aura from '@primevue/themes/aura'
 import { initializeApp } from 'firebase/app'
 import { getAuth, connectAuthEmulator } from 'firebase/auth'
-
-
-const app = createApp(App)
-app.use(PrimeVue, { theme: { preset: Aura } })
-app.use(router)
-
-app.mount('#app')
 
 const firebaseConfig = {
   apiKey: 'fake-api-key', // 可用任意字符串
