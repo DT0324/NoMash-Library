@@ -16,16 +16,25 @@ app.use(router)
 
 app.mount('#app')
 
+// Import the functions you need from the SDKs you need
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: 'fake-api-key', // 可用任意字符串
-  authDomain: 'localhost',
-  projectId: 'your-project-id'
-}
+  apiKey: "AIzaSyBXF2rG2BqM7s4n8XQQ4Tm5DR06njcwwqM",
+  authDomain: "fit5032-11789.firebaseapp.com",
+  projectId: "fit5032-11789",
+  storageBucket: "fit5032-11789.firebasestorage.app",
+  messagingSenderId: "579980308236",
+  appId: "1:579980308236:web:3fe1f46609f2d568302329",
+  measurementId: "G-0JC19ZGCK3"
+};
 
-const app = initializeApp(firebaseConfig)
-const auth = getAuth(app)
+// Initialize Firebase
+initializeApp(firebaseConfig);
 
-// 连接到本地 Emulator
-connectAuthEmulator(auth, 'http://localhost:9099')
 
-export { auth }
+

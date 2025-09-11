@@ -3,7 +3,6 @@ import { ref } from 'vue'
 import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
-import { auth } from './main.js'
 
 createUserWithEmailAndPassword(auth, email, password)
   .then(userCredential => {
