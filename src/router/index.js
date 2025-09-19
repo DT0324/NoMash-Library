@@ -4,6 +4,7 @@ import AboutView from '../views/AboutView.vue'
 import LoginView from '../views/FirebaseSigninView.vue'
 import RegisterView from '../views/FirebaseRegistrationView.vue'
 import AdminView from '../views/AdminView.vue'
+import AddBookView from '../views/AddBookView.vue'
 
 const routes = [
   {
@@ -30,6 +31,11 @@ const routes = [
     path: '/admin',
     name: 'Admin',
     component: AdminView
+  },
+  {
+    path: '/addbook',
+    name: 'AddBook',
+    component: AddBookView
   }
 ]
 
