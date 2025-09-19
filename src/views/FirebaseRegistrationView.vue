@@ -42,7 +42,7 @@ const register = async () => {
 const saveUserRole = async (user) => {
   await setDoc(doc(db, 'users', user.uid), {
     email: user.email,
-    role: 'user' 
+    role: role.value 
   })
 }
 

@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 import LoginView from '../views/FirebaseSigninView.vue'
 import RegisterView from '../views/FirebaseRegistrationView.vue'
+import AdminView from '../views/AdminView.vue'
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: '/register',
     name: 'Register',
     component: RegisterView
+  },
+  {
+    path: '/admin',
+    name: 'Admin',
+    component: AdminView
   }
 ]
 

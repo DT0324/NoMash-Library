@@ -9,21 +9,35 @@
 <script setup>
 import { ref } from 'vue'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import { getFirestore, doc, getDoc } from 'firebase/firestore'
 import { useRouter } from 'vue-router'
+const db = getFirestore()
 const email = ref('')
 const password = ref('')
 const router = useRouter()
 const auth = getAuth()
 const login = async () => {
-  signInWithEmailAndPassword(auth, email.value, password.value)
-    .then((data) => {
-      console.log('User logged in:', data.user)
+  try {
+    const data = await signInWithEmailAndPassword(auth, email.value, password.value)
+    const user = data.user
+    console.log('User logged in:', user)
+
+    const userDoc = await getDoc(doc(db, 'users', user.uid))
+    if (userDoc.exists()) {
+      const role = userDoc.data().role
+      console.log('User role:', role)
+
+      if (role === 'admin') {
+        router.push('/admin')
+      } else {
+        router.push('/')
+      }
+    } else {
+      console.warn('No role info found for user')
       router.push('/')
-    })
-    .catch((error) => {
-      const errorCode = error.code
-      const errorMessage = error.message
-      console.error('Error:', errorCode, errorMessage)
-    })
+    }
+  } catch (error) {
+    console.error('Error:', error.code, error.message)
+  }
 }
 </script>
