@@ -15,7 +15,7 @@
     </div>
 </template>
 
-<script setup>
+<!-- <script setup>
 import { ref } from 'vue'
 import { getFirestore, collection, addDoc } from 'firebase/firestore'
 const db = getFirestore()
@@ -23,4 +23,4 @@ const db = getFirestore()
 export default {
   name: 'AddBookView'
 }
-</script>
+</script> -->
